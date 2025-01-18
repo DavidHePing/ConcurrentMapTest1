@@ -11,9 +11,9 @@ func Map_Test1_panic() {
 
 	for i := 0; i < 1000; i++ {
 		wg.Add(1)
+		tmp := i
 		go func() {
 			defer wg.Done()
-			tmp := i
 			m[tmp%10] = tmp
 		}()
 	}
